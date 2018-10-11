@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { PLAYER, BACKGROUND } from "../constants";
+import { PLAYER, BACKGROUND, PLATFORM } from "../constants";
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -44,14 +44,14 @@ class GameScene extends Phaser.Scene {
     addPlatforms() {
         this.platforms = this.physics.add.staticGroup();
         this.platforms
-            .create(400, 568, "ground")
+            .create(400, 568, PLATFORM)
             .setScale(2)
             .refreshBody();
     }
 
     preload() {
         this.load.image(BACKGROUND, "assets/images/background.png");
-        this.load.image("ground", "assets/images/platform.png");
+        this.load.image(PLATFORM, "assets/images/platform.png");
         this.load.spritesheet(PLAYER, "assets/images/player.png", {
             frameWidth: 32,
             frameHeight: 48
