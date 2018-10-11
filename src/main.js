@@ -1,13 +1,14 @@
 import "phaser";
 import GameScene from "./scenes/GameScene";
+import { GAME } from "./constants";
 
 const config = {
     type: Phaser.WEBGL,
     pixelArt: true,
     roundPixels: true,
     parent: "content",
-    width: 1000,
-    height: 1000,
+    width: GAME.WIDTH,
+    height: GAME.HEIGHT,
     physics: {
         default: "arcade",
         arcade: {

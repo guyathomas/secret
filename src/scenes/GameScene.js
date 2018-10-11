@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { PLAYER, BACKGROUND, PLATFORM } from "../constants";
+import { PLAYER, BACKGROUND, PLATFORM, GAME } from "../constants";
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -44,8 +44,8 @@ class GameScene extends Phaser.Scene {
     addPlatforms() {
         this.platforms = this.physics.add.staticGroup();
         this.platforms
-            .create(400, 568, PLATFORM)
-            .setScale(2)
+            .create(GAME.WIDTH / 2, GAME.HEIGHT, PLATFORM)
+            .setScale(3)
             .refreshBody();
     }
 
@@ -59,7 +59,8 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
-        this.add.sprite(400, 240, "background");
+        this.add.sprite(400, 240, BACKGROUND);
+        this.addPlatforms();
         this.addPlayer();
     }
 }
