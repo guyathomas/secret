@@ -12,6 +12,7 @@ class GameScene extends Phaser.Scene {
         this.player = this.physics.add.sprite(100, 450, PLAYER);
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
+        this.player.body.setGravityY(300);
 
         this.physics.add.collider(this.player, this.platforms);
 
@@ -50,6 +51,31 @@ class GameScene extends Phaser.Scene {
             .refreshBody();
     }
 
+    addKeyListeners() {
+      if (this.cursors.left.isDown) {
+        this.player.setVelocityX(-160);
+
+        this.player.anims.play('left', true);
+      }
+      else if (this.cursors.right.isDown) {
+        this.player.setVelocityX(160);
+
+        this.player.anims.play('right', true);
+      }
+      else {
+        this.player.setVelocityX(0);
+
+        this.player.anims.play('turn');
+      }
+      if (this.cursors.up.isDown && this.player.body.touching.down) {
+        this.player.setVelocityY(-330);
+      }
+    }
+
+    initializeKeyboard() {
+        this.cursors = this.input.keyboard.createCursorKeys();
+    }
+
     preload() {
         this.load.image(BACKGROUND, "assets/images/background.png");
         this.load.image(PLATFORM, "assets/images/platform.png");
@@ -63,6 +89,11 @@ class GameScene extends Phaser.Scene {
         this.add.sprite(400, 240, BACKGROUND);
         this.addPlatforms();
         this.addPlayer();
+        this.initializeKeyboard();
+    }
+
+    update() {
+      this.addKeyListeners();
     }
 }
 
