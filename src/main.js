@@ -5,7 +5,7 @@ const config = {
     type: Phaser.WEBGL,
     pixelArt: true,
     roundPixels: true,
-    parent: "test",
+    parent: "content",
     width: 1000,
     height: 1000,
     physics: {
