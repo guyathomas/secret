@@ -8,11 +8,17 @@ class GameScene extends Phaser.Scene {
         this.player = null;
     }
 
+    setupCameraFollow() {
+        this.cameras.main.setBounds(0, 0, GAME.WIDTH, GAME.HEIGHT);
+        this.cameras.main.startFollow(this.player, true);
+        this.cameras.main.setZoom(1.2);
+    }
+
     addPlayer() {
         this.player = this.physics.add.sprite(100, 450, PLAYER);
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
-        this.player.body.setGravityY(300);
+        // this.player.body.setGravityY(800); Sets individual gravity level
 
         this.physics.add.collider(this.player, this.platforms);
 
@@ -51,7 +57,7 @@ class GameScene extends Phaser.Scene {
             .refreshBody();
     }
 
-    addKeyListeners() {
+    moveCharacter() {
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-160);
 
@@ -88,10 +94,11 @@ class GameScene extends Phaser.Scene {
         this.addPlatforms();
         this.addPlayer();
         this.initializeKeyboard();
+        this.setupCameraFollow();
     }
 
     update() {
-        this.addKeyListeners();
+        this.moveCharacter();
     }
 }
 
