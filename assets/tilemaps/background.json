@@ -1,14 +1,15 @@
-{ "columns":1,
- "image":"assets\/platformGameAssets\/Background\/png\/2048x1536\/Background\/Background.png",
- "imageheight":1536,
- "imagewidth":2048,
- "margin":0,
- "name":"Background",
- "spacing":0,
- "tilecount":1,
- "tiledversion":"1.2.0",
- "tileheight":1536,
- "tilewidth":2048,
- "type":"tileset",
- "version":1.2
+{
+    "columns": 1,
+    "image": "./background.png",
+    "imageheight": 1536,
+    "imagewidth": 2048,
+    "margin": 0,
+    "name": "Background",
+    "spacing": 0,
+    "tilecount": 1,
+    "tiledversion": "1.2.0",
+    "tileheight": 128,
+    "tilewidth": 128,
+    "type": "tileset",
+    "version": 1.2
 }

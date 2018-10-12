@@ -1,6 +1,8 @@
 import Phaser from "phaser";
 import { LAYERS, GAME } from "../constants";
 import AnimatedTiles from "phaser-animated-tiles/dist/AnimatedTiles.min.js";
+const LEVEL = "hills-level-tilemap";
+const TILES = "tiles";
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -148,15 +150,10 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.tilemapTiledJSON(
-            "hills-level-tilemap",
-            "assets/tilemaps/hills-level.json"
-        );
-        this.load.image("tiles", "assets/images/sprite-sheet-summer.png");
+        this.load.tilemapTiledJSON(LEVEL, "assets/tilemaps/hills-level.json");
+        this.load.image(TILES, "assets/tilemaps/sprite-sheet-summer.png");
+        // this.load.image("background", "assets/tilemaps/background.png");
 
-        // this.load.image("hills", "assets/images/hills.png");
-        // this.load.image(LAYERS.PLATFORM, "assets/images/platform.png");
-        // this.load.image(LAYERS.GRASS, "assets/images/grass.png");
         // this.load.image(LAYERS.COIN, "assets/images/coin.png");
         // this.load.image(LAYERS.MACE, "assets/images/mace.png");
         this.load.spritesheet(LAYERS.PLAYER, "assets/images/player.png", {
@@ -171,24 +168,28 @@ class GameScene extends Phaser.Scene {
         //Add the tilemap and tileset image. The first parameter in addTilesetImage
         //is the name you gave the tilesheet when importing it into Tiled, the second
         //is the key to the asset in Phaser
-        debugger;
         var map = this.make.tilemap({
-            key: "hills-level-tilemap",
+            key: LEVEL,
             tileWidth: 128,
             tileHeight: 128
         });
-        const tiles = map.addTilesetImage("tiles128", "tiles");
+        const tiles = map.addTilesetImage("tiles128", TILES);
         const layer = map.createStaticLayer(0, tiles, 0, 0);
 
         //Add both the background and ground layers. We won't be doing anything with the
         //GroundLayer though
-        this.backgroundlayer = map.createStaticLayer(
-            "BackgroundLayer",
+        // this.backgroundlayer = map.createStaticLayer(
+        //     "BackgroundLayer",
+        //     tiles,
+        //     0,
+        //     0
+        // );
+        this.groundLayer = this.map.createStaticLayer(
+            "GroundLayer",
             tiles,
             0,
             0
         );
-        // this.groundLayer = this.map.createStaticLayer("GroundLayer");
 
         //Before you can use the collide function you need to set what tiles can collide
         // this.map.setCollisionBetween(1, 100, true, "GroundLayer");

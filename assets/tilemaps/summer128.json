@@ -1,14 +1,15 @@
-{ "columns":8,
- "image":"sprite-sheet-summer.png",
- "imageheight":390,
- "imagewidth":1040,
- "margin":0,
- "name":"summer128",
- "spacing":0,
- "tilecount":24,
- "tiledversion":"1.2.0",
- "tileheight":128,
- "tilewidth":128,
- "type":"tileset",
- "version":1.2
+{
+    "columns": 8,
+    "image": "./sprite-sheet-summer.png",
+    "imageheight": 390,
+    "imagewidth": 1040,
+    "margin": 0,
+    "name": "summer128",
+    "spacing": 0,
+    "tilecount": 24,
+    "tiledversion": "1.2.0",
+    "tileheight": 128,
+    "tilewidth": 128,
+    "type": "tileset",
+    "version": 1.2
 }
