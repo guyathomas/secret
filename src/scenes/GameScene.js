@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { PLAYER, BACKGROUND, PLATFORM, GAME } from "../constants";
+import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN } from "../constants";
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -14,6 +14,21 @@ class GameScene extends Phaser.Scene {
         this.cameras.main.setZoom(1.2);
     }
 
+    addCoins() {
+      this.coins = this.physics.add.group({
+        key: COIN,
+        repeat: 11,
+        setXY: { x: 12, y: 0, stepX: 70 },
+      });
+
+      this.coins.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      });
+
+      this.physics.add.collider(this.coins, this.platforms);
+      this.physics.add.collider(this.coins, this.floatingPlatforms);
+    }
+
     addPlayer() {
         this.player = this.physics.add.sprite(100, 450, PLAYER);
         this.player.setBounce(0.2);
@@ -21,6 +36,7 @@ class GameScene extends Phaser.Scene {
         // this.player.body.setGravityY(800); Sets individual gravity level
 
         this.physics.add.collider(this.player, this.platforms);
+        this.physics.add.collider(this.player, this.floatingPlatforms);
 
         this.anims.create({
             key: "left",
@@ -57,6 +73,13 @@ class GameScene extends Phaser.Scene {
             .refreshBody();
     }
 
+    addFloatingPlatforms() {
+      this.floatingPlatforms = this.physics.add.staticGroup();
+      this.floatingPlatforms.create(200, 400, GRASS);
+      this.floatingPlatforms.create(1000, 400, GRASS);
+      this.floatingPlatforms.create(550, 200, GRASS).setScale(3, 1).refreshBody();
+    }
+
     moveCharacter() {
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-160);
@@ -83,6 +106,8 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.load.image(BACKGROUND, "assets/images/background.png");
         this.load.image(PLATFORM, "assets/images/platform.png");
+        this.load.image(GRASS, "assets/images/grass.png");
+        this.load.image(COIN, "assets/images/coin.png");
         this.load.spritesheet(PLAYER, "assets/images/player.png", {
             frameWidth: 32,
             frameHeight: 48
@@ -92,7 +117,9 @@ class GameScene extends Phaser.Scene {
     create() {
         this.add.sprite(400, 240, BACKGROUND);
         this.addPlatforms();
+        this.addFloatingPlatforms();
         this.addPlayer();
+        this.addCoins();
         this.initializeKeyboard();
         this.setupCameraFollow();
     }
