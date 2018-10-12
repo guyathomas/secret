@@ -75,9 +75,9 @@ class GameScene extends Phaser.Scene {
 
     addFloatingPlatforms() {
       this.floatingPlatforms = this.physics.add.staticGroup();
-      this.floatingPlatforms.create(200, 400, GRASS);
-      this.floatingPlatforms.create(1000, 400, GRASS);
-      this.floatingPlatforms.create(550, 200, GRASS).setScale(3, 1).refreshBody();
+      this.floatingPlatforms.create(200, 700, GRASS);
+      this.floatingPlatforms.create(1000, 700, GRASS);
+      this.floatingPlatforms.create(550, 500, GRASS).setScale(3, 1).refreshBody();
     }
 
     moveCharacter() {
