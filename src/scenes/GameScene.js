@@ -1,11 +1,12 @@
 import Phaser from "phaser";
-import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN } from "../constants";
+import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN, MACE } from "../constants";
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
             key: "GameScene"
         });
         this.player = null;
+        this.score = 0;
     }
 
     setupCameraFollow() {
@@ -15,18 +16,19 @@ class GameScene extends Phaser.Scene {
     }
 
     addCoins() {
-        this.coins = this.physics.add.group({
-            key: COIN,
-            repeat: 11,
-            setXY: { x: 12, y: 0, stepX: 70 }
-        });
+      this.coins = this.physics.add.group({
+        key: COIN,
+        repeat: 11,
+        setXY: { x: 12, y: 0, stepX: 70 },
+      });
 
-        this.coins.children.iterate(function(child) {
-            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-        });
+      this.coins.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      });
 
-        this.physics.add.collider(this.coins, this.platforms);
-        this.physics.add.collider(this.coins, this.floatingPlatforms);
+      this.physics.add.collider(this.coins, this.platforms);
+      this.physics.add.collider(this.coins, this.floatingPlatforms);
+      this.physics.add.overlap(this.player, this.coins, this.collectCoin, null, this);
     }
 
     addPlayer() {
@@ -83,6 +85,25 @@ class GameScene extends Phaser.Scene {
             .refreshBody();
     }
 
+    addMaces() {
+      this.maces = this.physics.add.group({
+        key: MACE,
+        repeat: 11,
+        setXY: { x: 12, y: 0, stepX: 100 },
+      });
+      this.maces.children.iterate(function (child) {
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      });
+      this.physics.add.collider(this.maces, this.platforms);
+      this.physics.add.collider(this.maces, this.floatingPlatforms);
+    }
+
+    collectCoin(player, coin) {
+      coin.disableBody(true, true);
+      this.score += 10;
+      this.scoreText.setText(`Score: ${this.score}`);
+    }
+
     moveCharacter() {
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-160);
@@ -106,11 +127,18 @@ class GameScene extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
     }
 
+    initializeScore() {
+      this.scoreText = this.add.text(150, 200, 'score: 0', { fontSize: '32px', fill: '#000' });
+      this.scoreText.setScrollFactor(0);
+      this.scoreText.setText(`Score: ${this.score}`);
+    }
+
     preload() {
         this.load.image(BACKGROUND, "assets/images/background.png");
         this.load.image(PLATFORM, "assets/images/platform.png");
         this.load.image(GRASS, "assets/images/grass.png");
         this.load.image(COIN, "assets/images/coin.png");
+        this.load.image(MACE, "assets/images/mace.png");
         this.load.spritesheet(PLAYER, "assets/images/player.png", {
             frameWidth: 32,
             frameHeight: 48
@@ -119,10 +147,12 @@ class GameScene extends Phaser.Scene {
 
     create() {
         this.add.sprite(400, 240, BACKGROUND);
+        this.initializeScore();
         this.addPlatforms();
         this.addFloatingPlatforms();
         this.addPlayer();
         this.addCoins();
+        // this.addMaces();
         this.initializeKeyboard();
         this.setupCameraFollow();
     }
