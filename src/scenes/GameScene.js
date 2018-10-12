@@ -1,5 +1,8 @@
 import Phaser from "phaser";
 import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN, MACE } from "../constants";
+
+const INITIAL_MACE_DELAY = 1000;
+const INITIAL_COIN_COUNT = 11;
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -7,6 +10,8 @@ class GameScene extends Phaser.Scene {
         });
         this.player = null;
         this.score = 0;
+        this.maceDelay = INITIAL_MACE_DELAY;
+        this.coinCount = INITIAL_COIN_COUNT;
     }
 
     setupCameraFollow() {
@@ -18,7 +23,7 @@ class GameScene extends Phaser.Scene {
     addCoins() {
       this.coins = this.physics.add.group({
         key: COIN,
-        repeat: 11,
+        repeat: this.coinCount,
         setXY: { x: 12, y: 0, stepX: 70 },
       });
 
@@ -88,29 +93,48 @@ class GameScene extends Phaser.Scene {
     addMaces() {
       this.maces = this.physics.add.group({
         key: MACE,
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 100 },
+        setXY: { x: Math.random() * 900, y: 0 },
       });
-      this.maces.children.iterate(function (child) {
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-      });
-      this.physics.add.collider(this.maces, this.platforms);
-      this.physics.add.collider(this.maces, this.floatingPlatforms);
+      // this.maces.children.iterate(function (child) {
+      //   child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      // });
+      // this.physics.add.collider(this.maces, this.platforms);
+      // this.physics.add.collider(this.maces, this.floatingPlatforms);
+      this.physics.add.collider(this.player, this.maces, this.hitMace, null, this);
     }
 
     collectCoin(player, coin) {
       coin.disableBody(true, true);
       this.score += 10;
       this.scoreText.setText(`Score: ${this.score}`);
+      if (this.coins.countActive(true) === 0) {
+        this.physics.pause();
+        this.player.setTint(0x32CD32);
+        this.player.anims.play('turn');
+        this.maceDelay -= 100;
+        this.coinCount += 5;
+        setTimeout( () => this.scene.restart(), 5000);
+      }
+    }
+
+    hitMace(player, mace) {
+      this.physics.pause();
+      this.player.setTint(0xff0000);
+      this.player.anims.play('turn');
+      this.score = 0;
+      this.scoreText.setText(`Score: ${this.score}`);
+      this.maceDelay = INITIAL_MACE_DELAY;
+      this.coinCount = INITIAL_COIN_COUNT;
+      setTimeout( () => this.scene.restart(), 5000);
     }
 
     moveCharacter() {
         if (this.cursors.left.isDown) {
-            this.player.setVelocityX(-160);
+            this.player.setVelocityX(-300);
 
             this.player.anims.play("left", true);
         } else if (this.cursors.right.isDown) {
-            this.player.setVelocityX(160);
+            this.player.setVelocityX(300);
 
             this.player.anims.play("right", true);
         } else {
@@ -119,7 +143,7 @@ class GameScene extends Phaser.Scene {
             this.player.anims.play("turn");
         }
         if (this.cursors.up.isDown && this.player.body.touching.down) {
-            this.player.setVelocityY(-1000);
+            this.player.setVelocityY(-800);
         }
     }
 
@@ -152,7 +176,12 @@ class GameScene extends Phaser.Scene {
         this.addFloatingPlatforms();
         this.addPlayer();
         this.addCoins();
-        // this.addMaces();
+        this.time.addEvent({
+          delay: this.maceDelay,
+          callback: this.addMaces,
+          callbackScope: this,
+          loop: true,
+        });
         this.initializeKeyboard();
         this.setupCameraFollow();
     }
