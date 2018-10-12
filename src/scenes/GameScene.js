@@ -15,18 +15,18 @@ class GameScene extends Phaser.Scene {
     }
 
     addCoins() {
-      this.coins = this.physics.add.group({
-        key: COIN,
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 },
-      });
+        this.coins = this.physics.add.group({
+            key: COIN,
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70 }
+        });
 
-      this.coins.children.iterate(function (child) {
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-      });
+        this.coins.children.iterate(function(child) {
+            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        });
 
-      this.physics.add.collider(this.coins, this.platforms);
-      this.physics.add.collider(this.coins, this.floatingPlatforms);
+        this.physics.add.collider(this.coins, this.platforms);
+        this.physics.add.collider(this.coins, this.floatingPlatforms);
     }
 
     addPlayer() {
@@ -74,10 +74,13 @@ class GameScene extends Phaser.Scene {
     }
 
     addFloatingPlatforms() {
-      this.floatingPlatforms = this.physics.add.staticGroup();
-      this.floatingPlatforms.create(200, 700, GRASS);
-      this.floatingPlatforms.create(1000, 700, GRASS);
-      this.floatingPlatforms.create(550, 500, GRASS).setScale(3, 1).refreshBody();
+        this.floatingPlatforms = this.physics.add.staticGroup();
+        this.floatingPlatforms.create(200, 700, GRASS);
+        this.floatingPlatforms.create(1000, 700, GRASS);
+        this.floatingPlatforms
+            .create(550, 500, GRASS)
+            .setScale(3, 1)
+            .refreshBody();
     }
 
     moveCharacter() {
