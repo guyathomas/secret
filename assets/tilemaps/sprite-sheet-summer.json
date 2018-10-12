@@ -1,0 +1,503 @@
+{
+	"textures": [
+		{
+			"image": "sprite-sheet-summer.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1040,
+				"h": 390
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Grass.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassCliffLeft.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassCliffMid.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassCliffRight.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 131,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassColumn.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 131,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillLeft.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 131,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillLeft2 DownShadow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 261,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillLeft2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 261,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillRight.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 261,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillRight2 DownShadow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 391,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassHillRight2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 391,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillLeft.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 391,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillLeft2 DownShadow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 521,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillLeft2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 521,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight&amp;Left.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 521,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 651,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight2 DownShadow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 651,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight2&amp;Left2 DownShadow.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 651,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight2&amp;Left2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 781,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassJoinHillRight2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 781,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassLeft.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 781,
+						"y": 261,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassMid.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 911,
+						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "GrassRight.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 911,
+						"y": 131,
+						"w": 128,
+						"h": 128
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:afb67963ff89d41df5814f3e30664725:f744099b3463d90ce3ae3fef9acf94bd:cd6ad1baf0397b555e9c4041bd322c0a$"
+	}
+}
