@@ -23,7 +23,7 @@ class GameScene extends Phaser.Scene {
     addCoins() {
       this.coins = this.physics.add.group({
         key: COIN,
-        repeat: this.coinCount,
+        repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 },
       });
 
@@ -113,7 +113,7 @@ class GameScene extends Phaser.Scene {
         this.player.anims.play('turn');
         this.maceDelay -= 100;
         this.coinCount += 5;
-        setTimeout( () => this.scene.restart(), 5000);
+        setTimeout( () => this.scene.restart(), 3000);
       }
     }
 
@@ -121,11 +121,13 @@ class GameScene extends Phaser.Scene {
       this.physics.pause();
       this.player.setTint(0xff0000);
       this.player.anims.play('turn');
-      this.score = 0;
-      this.scoreText.setText(`Score: ${this.score}`);
       this.maceDelay = INITIAL_MACE_DELAY;
       this.coinCount = INITIAL_COIN_COUNT;
-      setTimeout( () => this.scene.restart(), 5000);
+      setTimeout( () => {
+        this.score = 0;
+        this.scoreText.setText(`Score: ${this.score}`);
+        this.scene.restart()
+      }, 3000);
     }
 
     moveCharacter() {
