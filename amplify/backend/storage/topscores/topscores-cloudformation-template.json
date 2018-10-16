@@ -20,15 +20,15 @@
                 "AttributeDefinitions": [
                   
                   {
-                      "AttributeName": "score",
-                      "AttributeType": "N"
+                      "AttributeName": "id",
+                      "AttributeType": "S"
                   } 
                   
                 ],
                 "KeySchema": [
                   
                   {
-                    "AttributeName": "score",
+                    "AttributeName": "id",
                     "KeyType": "HASH"
                   } 
                   
