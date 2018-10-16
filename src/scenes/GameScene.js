@@ -91,13 +91,13 @@ class GameScene extends Phaser.Scene {
     }
 
     addMaces() {
-        if ( !window.reflektive ){
+        // if ( !window.reflektive ){
             this.maces = this.physics.add.group({
               key: MACE,
               setXY: { x: Math.random() * 900, y: 0 },
             });
             this.physics.add.collider(this.player, this.maces, this.hitMace, null, this);
-        }
+        // }
     }
 
     collectCoin(player, coin) {
