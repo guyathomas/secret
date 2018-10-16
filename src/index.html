@@ -34,6 +34,16 @@
             top: 200px;
             left: 10px;
         }
+        .top-score {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            background: black;
+            color: white;
+            opacity: 0.5;
+        }
     </style>
 </head>
 
@@ -41,5 +51,6 @@
     <!-- <button onclick="(function(){ window.reflektive = !window.reflektive;})()">
         Toggle Reflektive
     </button> -->
+    <div class="top-score"></div>
     <div id="content" style="display: block; width: 100%; text-align: center"></div>
 </body>

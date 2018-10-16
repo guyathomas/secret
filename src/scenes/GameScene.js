@@ -1,5 +1,9 @@
 import Phaser from "phaser";
 import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN, MACE } from "../constants";
+import Amplify, { API } from "aws-amplify";
+import awsconfig from '../aws-exports';
+
+Amplify.configure(awsconfig);
 
 const INITIAL_MACE_DELAY = 1000;
 const INITIAL_COIN_COUNT = 11;
@@ -120,7 +124,20 @@ class GameScene extends Phaser.Scene {
       this.player.anims.play('turn');
       this.maceDelay = INITIAL_MACE_DELAY;
       this.coinCount = INITIAL_COIN_COUNT;
+      
       setTimeout( () => {
+        
+        API.post('topscore', '/topscores', {
+            body: {
+                name: window.initials,
+                score: this.score
+            }
+        }).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error)
+        });
+
         this.score = 0;
         this.scoreText.setText(`Score: ${this.score}`);
         this.scene.restart()
