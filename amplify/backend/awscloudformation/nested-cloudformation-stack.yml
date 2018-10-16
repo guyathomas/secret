@@ -84,68 +84,6 @@
 				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {}
 			}
-		},
-		"storagetopscores": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscores-cloudformation-template.json",
-				"Parameters": {
-					"tableName": "topscores",
-					"partitionKeyName": "id",
-					"partitionKeyType": "S"
-				}
-			}
-		},
-		"storagetopscoreNew": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscoreNew-cloudformation-template.json",
-				"Parameters": {
-					"tableName": "topscores",
-					"partitionKeyName": "name",
-					"partitionKeyType": "S"
-				}
-			}
-		},
-		"functionsecret084daf8e": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/secret084daf8e-cloudformation-template.json",
-				"Parameters": {
-					"storagetopscoresName": {
-						"Fn::GetAtt": [
-							"storagetopscores",
-							"Outputs.Name"
-						]
-					},
-					"storagetopscoresArn": {
-						"Fn::GetAtt": [
-							"storagetopscores",
-							"Outputs.Arn"
-						]
-					}
-				}
-			}
-		},
-		"apiapibd83f32a": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/apibd83f32a-cloudformation-template.json",
-				"Parameters": {
-					"functionsecret084daf8eName": {
-						"Fn::GetAtt": [
-							"functionsecret084daf8e",
-							"Outputs.Name"
-						]
-					},
-					"functionsecret084daf8eArn": {
-						"Fn::GetAtt": [
-							"functionsecret084daf8e",
-							"Outputs.Arn"
-						]
-					}
-				}
-			}
 		}
 	},
 	"Outputs": {

@@ -19,7 +19,7 @@
                 "s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/hosting/template.json",
                 "logicalId": "hostingS3AndCloudFront"
             },
-            "lastPushTimeStamp": "2018-10-16T21:30:30.036Z",
+            "lastPushTimeStamp": "2018-10-16T23:23:07.805Z",
             "output": {
                 "CloudFrontSecureURL": "https://d2xiq4vyc35dme.cloudfront.net",
                 "S3BucketSecureURL": "https://secret-20181016125929--hostingbucket.s3.amazonaws.com",
@@ -32,78 +32,7 @@
             "lastPushDirHash": "T6qZP8QZ5gEKE/LSLPhpKhM13fw="
         }
     },
-    "storage": {
-        "topscores": {
-            "service": "DynamoDB",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscores-cloudformation-template.json",
-                "logicalId": "storagetopscores"
-            },
-            "lastPushTimeStamp": "2018-10-16T23:11:51.427Z",
-            "output": {
-                "PartitionKeyName": "score",
-                "Region": "eu-west-1",
-                "Arn": "arn:aws:dynamodb:eu-west-1:942720251440:table/topscores",
-                "PartitionKeyType": "N",
-                "Name": "topscores"
-            },
-            "lastPushDirHash": "MuTA5dAIAto+moyUgP6cnbXggNQ="
-        },
-        "topscoreNew": {
-            "service": "DynamoDB",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscoreNew-cloudformation-template.json",
-                "logicalId": "storagetopscoreNew"
-            },
-            "lastPushTimeStamp": "2018-10-16T23:11:51.414Z"
-        }
-    },
-    "function": {
-        "secret084daf8e": {
-            "service": "Lambda",
-            "providerPlugin": "awscloudformation",
-            "build": true,
-            "dependsOn": [
-                {
-                    "category": "storage",
-                    "resourceName": "topscores",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ],
-            "lastBuildTimeStamp": "2018-10-16T23:11:39.482Z",
-            "lastPackageTimeStamp": "2018-10-16T23:11:47.312Z",
-            "distZipFilename": "secret084daf8e-1539731499-latest-build.zip",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/secret084daf8e-cloudformation-template.json",
-                "logicalId": "functionsecret084daf8e"
-            },
-            "lastPushTimeStamp": "2018-10-16T23:11:51.417Z"
-        }
-    },
-    "api": {
-        "apibd83f32a": {
-            "service": "API Gateway",
-            "providerPlugin": "awscloudformation",
-            "dependsOn": [
-                {
-                    "category": "function",
-                    "resourceName": "secret084daf8e",
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ]
-                }
-            ],
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/apibd83f32a-cloudformation-template.json",
-                "logicalId": "apiapibd83f32a"
-            },
-            "lastPushTimeStamp": "2018-10-16T23:11:51.424Z"
-        }
-    }
+    "storage": {},
+    "function": {},
+    "api": {}
 }
