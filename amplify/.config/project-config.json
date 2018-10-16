@@ -1,0 +1,20 @@
+{
+    "projectName": "secret",
+    "projectPath": "/Users/bpeterson/workspace/secret",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "/Users/bpeterson/.nvm/versions/node/v8.11.3/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "none",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run deploy",
+            "StartCommand": "npm run dev"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/bpeterson/.nvm/versions/node/v8.11.3/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}
