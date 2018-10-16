@@ -29,9 +29,17 @@
             image-rendering: pixelated;
             /* Chrome 41 */
         }
+        button {
+            position: absolute;
+            top: 200px;
+            left: 10px;
+        }
     </style>
 </head>
 
 <body style="background-color: black;">
+    <button onclick="(function(){ window.reflektive = !window.reflektive;})()">
+        Toggle Reflektive
+    </button>
     <div id="content" style="display: block; width: 100%; text-align: center"></div>
 </body>

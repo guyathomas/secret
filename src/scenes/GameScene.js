@@ -91,16 +91,13 @@ class GameScene extends Phaser.Scene {
     }
 
     addMaces() {
-      this.maces = this.physics.add.group({
-        key: MACE,
-        setXY: { x: Math.random() * 900, y: 0 },
-      });
-      // this.maces.children.iterate(function (child) {
-      //   child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-      // });
-      // this.physics.add.collider(this.maces, this.platforms);
-      // this.physics.add.collider(this.maces, this.floatingPlatforms);
-      this.physics.add.collider(this.player, this.maces, this.hitMace, null, this);
+        if ( !window.reflektive ){
+            this.maces = this.physics.add.group({
+              key: MACE,
+              setXY: { x: Math.random() * 900, y: 0 },
+            });
+            this.physics.add.collider(this.player, this.maces, this.hitMace, null, this);
+        }
     }
 
     collectCoin(player, coin) {
