@@ -91,15 +91,26 @@
 				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscores-cloudformation-template.json",
 				"Parameters": {
 					"tableName": "topscores",
-					"partitionKeyName": "score",
-					"partitionKeyType": "N"
+					"partitionKeyName": "id",
+					"partitionKeyType": "S"
 				}
 			}
 		},
-		"functiontopscores": {
+		"storagetopscoreNew": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/topscores-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscoreNew-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "topscores",
+					"partitionKeyName": "name",
+					"partitionKeyType": "S"
+				}
+			}
+		},
+		"functionsecret084daf8e": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/secret084daf8e-cloudformation-template.json",
 				"Parameters": {
 					"storagetopscoresName": {
 						"Fn::GetAtt": [
@@ -116,20 +127,20 @@
 				}
 			}
 		},
-		"apitopscore": {
+		"apiapibd83f32a": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/topscore-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/apibd83f32a-cloudformation-template.json",
 				"Parameters": {
-					"functiontopscoresName": {
+					"functionsecret084daf8eName": {
 						"Fn::GetAtt": [
-							"functiontopscores",
+							"functionsecret084daf8e",
 							"Outputs.Name"
 						]
 					},
-					"functiontopscoresArn": {
+					"functionsecret084daf8eArn": {
 						"Fn::GetAtt": [
-							"functiontopscores",
+							"functionsecret084daf8e",
 							"Outputs.Arn"
 						]
 					}
