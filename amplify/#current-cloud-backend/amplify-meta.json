@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-10-16T21:30:30.036Z",
+			"lastPushTimeStamp": "2018-10-16T23:28:17.585Z",
 			"output": {
 				"CloudFrontSecureURL": "https://d2xiq4vyc35dme.cloudfront.net",
 				"S3BucketSecureURL": "https://secret-20181016125929--hostingbucket.s3.amazonaws.com",
@@ -32,7 +32,80 @@
 			"lastPushDirHash": "T6qZP8QZ5gEKE/LSLPhpKhM13fw="
 		}
 	},
-	"storage": {},
-	"function": {},
-	"api": {}
+	"storage": {
+		"topscores": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscores-cloudformation-template.json",
+				"logicalId": "storagetopscores"
+			},
+			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"output": {
+				"PartitionKeyName": "id",
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:dynamodb:eu-west-1:942720251440:table/topscores",
+				"PartitionKeyType": "S",
+				"Name": "topscores"
+			},
+			"lastPushDirHash": "tgXLeMFP1iiVdDI4TW/ewSPZ4Cw="
+		}
+	},
+	"function": {
+		"topscores": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "topscores",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2018-10-16T23:25:29.616Z",
+			"lastPackageTimeStamp": "2018-10-16T23:25:35.867Z",
+			"distZipFilename": "topscores-1539732329-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/topscores-cloudformation-template.json",
+				"logicalId": "functiontopscores"
+			},
+			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:942720251440:function:topscores",
+				"Name": "topscores"
+			},
+			"lastPushDirHash": "hzBbcMJQuVeRyDzujOh42tLpK7A="
+		}
+	},
+	"api": {
+		"topscore": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "topscores",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/topscore-cloudformation-template.json",
+				"logicalId": "apitopscore"
+			},
+			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"output": {
+				"ApiName": "topscore",
+				"RootUrl": "https://7oj8o4ncoi.execute-api.eu-west-1.amazonaws.com/Prod"
+			},
+			"lastPushDirHash": "PVDTgc8KnfXaFxQ03jGaZroTnJY="
+		}
+	}
 }

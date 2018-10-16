@@ -5,6 +5,7 @@ import Amplify, { API } from "aws-amplify";
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
+Amplify.Logger.LOG_LEVEL = 'DEBUG'
 
 const config = {
     type: Phaser.WEBGL,

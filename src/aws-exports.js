@@ -4,7 +4,21 @@ const awsmobile =  {
     "aws_project_region": "eu-west-1",
     "aws_content_delivery_bucket": "secret-20181016125929--hostingbucket",
     "aws_content_delivery_bucket_region": "eu-west-1",
-    "aws_content_delivery_url": "https://d2xiq4vyc35dme.cloudfront.net"
+    "aws_content_delivery_url": "https://d2xiq4vyc35dme.cloudfront.net",
+    "aws_dynamodb_all_tables_region": "eu-west-1",
+    "aws_dynamodb_table_schemas": [
+        {
+            "tableName": "topscores",
+            "region": "eu-west-1"
+        }
+    ],
+    "aws_cloud_logic_custom": [
+        {
+            "name": "topscore",
+            "endpoint": "https://7oj8o4ncoi.execute-api.eu-west-1.amazonaws.com/Prod",
+            "region": "eu-west-1"
+        }
+    ]
 };
 
 

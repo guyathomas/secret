@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import { PLAYER, BACKGROUND, PLATFORM, GAME, GRASS, COIN, MACE } from "../constants";
 import Amplify, { API } from "aws-amplify";
+import uuid from 'uuid/v4';
 import awsconfig from '../aws-exports';
 
 Amplify.configure(awsconfig);
@@ -129,6 +130,7 @@ class GameScene extends Phaser.Scene {
         
         API.post('topscore', '/topscores', {
             body: {
+                id: uuid(),
                 name: window.initials,
                 score: this.score
             }

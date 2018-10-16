@@ -1,0 +1,5 @@
+{
+    "tableName": "topscores",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
