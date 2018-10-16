@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/topscores",
+            "lambdaFunction": "topscores",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "topscore",
+    "apiName": "secretea040aea",
+    "functionArns": [
+        {
+            "lambdaFunction": "topscores"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "secret-20181016125847-authRole",
+        "unAuthRoleName": "secret-20181016125847-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "topscores",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "ca4f033a"
+}
