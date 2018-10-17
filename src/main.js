@@ -1,6 +1,7 @@
 import "phaser";
 import GameScene from "./scenes/GameScene";
 import { GAME } from "./constants";
+import sanitizeHtml from 'sanitize-html';
 import Amplify, { API } from "aws-amplify";
 import awsconfig from './aws-exports';
 
@@ -32,7 +33,7 @@ API.get('topscore', '/topscores')
             .sort((a, b) => b.score - a.score)
             .slice(0,20)
             .map(entry => {
-                return `<li><p>${entry.name}</p><p>${entry.score}</p>`
+                return `<li><p>${sanitizeHtml(entry.name)}</p><p>${sanitizeHtml(entry.score)}</p>`
             })
             .join('');
         
