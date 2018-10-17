@@ -125,6 +125,8 @@ class GameScene extends Phaser.Scene {
       this.player.anims.play('turn');
       this.maceDelay = INITIAL_MACE_DELAY;
       this.coinCount = INITIAL_COIN_COUNT;
+
+      const finalScore = this.score;
       
       setTimeout( () => {
         
@@ -132,10 +134,10 @@ class GameScene extends Phaser.Scene {
             body: {
                 id: uuid(),
                 name: window.initials,
-                score: this.score
+                score: finalScore
             }
         }).then(response => {
-            console.log(response);
+            console.log('Score recorded', finalScore);
         }).catch(error => {
             console.log(error)
         });
