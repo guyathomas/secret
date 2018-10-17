@@ -26,6 +26,11 @@ const config = {
 
 window.initials = window.prompt('What are your initials?').slice(0,3);
 API.get('topscore', '/topscores')
-    .then(console.log)
+    .then(response => {
+        const top = response
+            .sort((a, b) => b.score - a.score)
+            .slice(0,20);
+        console.log(top);
+    })
 
 const game = new Phaser.Game(config);

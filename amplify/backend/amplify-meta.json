@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-10-16T23:28:17.585Z",
+			"lastPushTimeStamp": "2018-10-17T01:03:38.242Z",
 			"output": {
 				"CloudFrontSecureURL": "https://d2xiq4vyc35dme.cloudfront.net",
 				"S3BucketSecureURL": "https://secret-20181016125929--hostingbucket.s3.amazonaws.com",
@@ -40,7 +40,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/storage/topscores-cloudformation-template.json",
 				"logicalId": "storagetopscores"
 			},
-			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"lastPushTimeStamp": "2018-10-17T01:03:38.242Z",
 			"output": {
 				"PartitionKeyName": "id",
 				"Region": "eu-west-1",
@@ -67,19 +67,19 @@
 				}
 			],
 			"lastBuildTimeStamp": "2018-10-16T23:25:29.616Z",
-			"lastPackageTimeStamp": "2018-10-16T23:25:35.867Z",
-			"distZipFilename": "topscores-1539732329-latest-build.zip",
+			"lastPackageTimeStamp": "2018-10-17T01:00:46.880Z",
+			"distZipFilename": "topscores-1539738044-latest-build.zip",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/function/topscores-cloudformation-template.json",
 				"logicalId": "functiontopscores"
 			},
-			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"lastPushTimeStamp": "2018-10-17T01:03:38.246Z",
 			"output": {
 				"Region": "eu-west-1",
 				"Arn": "arn:aws:lambda:eu-west-1:942720251440:function:topscores",
 				"Name": "topscores"
 			},
-			"lastPushDirHash": "hzBbcMJQuVeRyDzujOh42tLpK7A="
+			"lastPushDirHash": "vHNjiQsi3ST7ZNAamsFgJsi5PwE="
 		}
 	},
 	"api": {
@@ -100,7 +100,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/secret-20181016125847-deployment/amplify-cfn-templates/api/topscore-cloudformation-template.json",
 				"logicalId": "apitopscore"
 			},
-			"lastPushTimeStamp": "2018-10-16T23:28:17.594Z",
+			"lastPushTimeStamp": "2018-10-17T01:03:38.246Z",
 			"output": {
 				"ApiName": "topscore",
 				"RootUrl": "https://7oj8o4ncoi.execute-api.eu-west-1.amazonaws.com/Prod"

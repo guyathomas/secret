@@ -54,12 +54,12 @@ const convertUrlType = (param, type) => {
 
 app.get(path, function(req, res) {
 
-  let queryParams = {
+  let params = {
     TableName: tableName,
     Select: 'ALL_ATTRIBUTES',
   } 
 
-  dynamodb.query(queryParams, (err, data) => {
+  dynamodb.scan(params, (err, data) => {
     if (err) {
       res.json({error: 'Could not load items: ' + err});
     } else {
