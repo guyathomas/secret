@@ -139,6 +139,13 @@ app.put(path, function(req, res) {
 *************************************/
 
 app.post(path, function(req, res) {
+  const { id, name, score } = req.body;
+
+  const cleanBody = {
+    id: sanitizeHtml(id),
+    name: sanitizeHtml(name),
+    score: sanitizeHtml(score),
+  }
   
   if (userIdPresent) {
     req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
@@ -146,7 +153,7 @@ app.post(path, function(req, res) {
 
   let putItemParams = {
     TableName: tableName,
-    Item: req.body
+    Item: cleanBody
   }
   dynamodb.put(putItemParams, (err, data) => {
     if(err) {
