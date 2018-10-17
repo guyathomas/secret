@@ -9,6 +9,7 @@ const AWS = require('aws-sdk')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var bodyParser = require('body-parser')
 var express = require('express')
+var sanitizeHtml = require('sanitize-html');
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
